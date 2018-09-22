@@ -5,6 +5,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 /**
+
 * Test.
 *
 * @author Nikita Karuk (nik.karuk99@mail.ru)
@@ -13,6 +14,7 @@ import static org.junit.Assert.assertThat;
 */
 public class CalculateTest {
 /**
+
 * Test echo.
 */
     @Test
