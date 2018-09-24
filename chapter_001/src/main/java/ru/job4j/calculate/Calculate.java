@@ -8,6 +8,7 @@ package ru.job4j.calculate;
 */
 public class Calculate {
 	/**
+	* Main.
 	* Конструктор, вывод строки в консоль.
 	* @param args - args.
 	*/
