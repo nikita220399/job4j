@@ -9,33 +9,33 @@ public class CalculatorTest {
     @Test
     public void whenAddOnePlusOneThenTwo() {
         Calculator calc = new Calculator();
-        calc.add(1D, 1D);
+        calc.add(1.0, 1.0);
         double result = calc.getResult();
-        double expected = 2D;
+        double expected = 2.0;
         assertThat(result, is(expected));
     }
 	@Test
 	public void whenAddOnesubtactOneThenZero() {
         Calculator calc = new Calculator();
-        calc.add(1D, 1D);
+        calc.subtact(1.0, 1.0);
         double result = calc.getResult();
-        double expected = 0D;
+        double expected = 0.0;
         assertThat(result, is(expected));
     }
 	@Test
 	public void whenAddOnedivOneThenOne() {
         Calculator calc = new Calculator();
-        calc.add(1D, 1D);
+        calc.div(1.0, 1.0);
         double result = calc.getResult();
-        double expected = 1D;
+        double expected = 1.0;
         assertThat(result, is(expected));
     }
 	@Test
 	public void whenAddOnemultipleOneThenOne() {
         Calculator calc = new Calculator();
-        calc.add(1D, 1D);
+        calc.multiple(1.0, 1.0);
         double result = calc.getResult();
-        double expected = 1D;
+        double expected = 1.0;
         assertThat(result, is(expected));
     }
 }
