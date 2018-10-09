@@ -38,9 +38,23 @@ public class Triangle {
         double ac = this.a.distanceTo(this.c);
         double bc = this.b.distanceTo(this.c);
         double p = this.period(ab, ac, bc);
-        if ((ab + bc > ac) && (ab + ac > bc) && (bc + ac > ab)) {
+        if (this.exist(ab, ac, bc)) {
             rsl = Math.sqrt(p * (p - ab) * (p - bc) * (p - ac));
         }
         return rsl;
+    }
+
+    /**
+     * Метод проверяет можно ли построить треугольник с такими длинами сторон.
+     *
+     * Подумайте какое надо написать условие, чтобы определить можно ли построить треугольник.
+     *
+     * @param ab Длина от точки a b.
+     * @param ac Длина от точки a c.
+     * @param bc Длина от точки b c.
+     * @return
+     */
+    private boolean exist(double ab, double ac, double bc) {
+        return (ab + bc > ac) && (ab + ac > bc) && (bc + ac > ab);
     }
 }
