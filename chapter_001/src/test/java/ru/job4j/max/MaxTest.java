@@ -18,4 +18,11 @@ public class MaxTest {
         int result = maximum.max(1, 2);
         assertThat(result, is(2));
     }
+
+    @Test
+    public void whenFirstMoreSecondNotLessThird() {
+        Max maximum = new Max();
+        int result = maximum.max3(3, 1, 5);
+        assertThat(result, is(5));
+    }
 }
