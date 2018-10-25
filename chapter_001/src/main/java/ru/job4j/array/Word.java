@@ -16,17 +16,14 @@ public class Word {
      * @return если слово начинается с префикса
      */
     public boolean startWith(String prefix) {
-        boolean result = false;
-        int kolvo = 0;
+        boolean result = true;
         char[] value = prefix.toCharArray();
 
         for (int i = 0; i < value.length; i++) {
-            if (value[i] == data[i]) {
-                kolvo++;
+            if (value[i] != data[i]) {
+                result = false;
+                break;
             }
-        }
-        if (kolvo == value.length) {
-            result = true;
         }
         return result;
     }
