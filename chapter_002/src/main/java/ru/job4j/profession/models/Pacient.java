@@ -4,6 +4,6 @@ import ru.job4j.profession.Profession;
 
 public class Pacient extends Profession {
     public Pacient (String name) {
-        this.name = name;
+        super(name);
     }
 }

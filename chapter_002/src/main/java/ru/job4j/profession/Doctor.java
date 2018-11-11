@@ -5,7 +5,7 @@ import ru.job4j.profession.models.Pacient;
 
 public class Doctor extends Profession {
     public Doctor (String name) {
-        this.name = name;
+        super(name);
     }
 
     public Diagnose heal(Pacient pacient) {

@@ -5,7 +5,7 @@ import ru.job4j.profession.models.Home;
 
 public class Engineer extends Profession {
     public Engineer (String name) {
-        this.name = name;
+        super(name);
     }
 
     public Building build (Home home) {
