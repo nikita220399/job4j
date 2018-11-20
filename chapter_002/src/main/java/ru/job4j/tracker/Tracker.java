@@ -42,7 +42,7 @@ public class Tracker {
             }
             i++;
         }
-        if(this.items[i] != null) {
+        if (this.items[i] != null) {
             this.items[i] = item;
         }
     }
@@ -59,10 +59,10 @@ public class Tracker {
             }
             i++;
         }
-        for(; i <= this.position; i++) {
+        for (; i <= this.position; i++) {
             temp = this.items[i];
-            this.items[i] = this.items[i+1];
-            this.items[i+1] = temp;
+            this.items[i] = this.items[i + 1];
+            this.items[i + 1] = temp;
         }
         this.items[position] = null;
         System.arraycopy(this.items, 0, array, 0, this.position);
@@ -77,7 +77,7 @@ public class Tracker {
     public Item[] findByName(String key) {
         Item[] result = new Item[this.position];
         int i = 0;
-        for(Item item : this.items) {
+        for (Item item : this.items) {
             if ((item.getName()).equals(key)) {
                 result[i++] = item;
             }
