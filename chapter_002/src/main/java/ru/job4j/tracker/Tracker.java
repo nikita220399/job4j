@@ -43,29 +43,31 @@ public class Tracker {
             i++;
         }
         if (this.items[i] != null) {
+            item.setId(id);
             this.items[i] = item;
         }
     }
 
     // удаление заявок
     public void delete(String id) {
+        int index = 0;
         int i = 0;
-        Item[] array = new Item[this.position];
-        this.position--;
         Item temp;
-        for (Item item : this.items) {
-            if (item != null && item.getId().equals(id)) {
+        for (; index < this.position; index++) {
+            if (this.items[index].getId().equals(id)) {
                 break;
             }
             i++;
         }
-        for (; i <= this.position; i++) {
-            temp = this.items[i];
-            this.items[i] = this.items[i + 1];
-            this.items[i + 1] = temp;
+        for (; index < this.position - 1; index++) {
+            temp = this.items[index];
+            this.items[index] = this.items[index + 1];
+            this.items[index + 1] = temp;
         }
-        this.items[position] = null;
-        System.arraycopy(this.items, 0, array, 0, this.position);
+        if (i != this.position) {
+            this.items[position - 1] = null;
+            this.position--;
+        }
     }
 
     // получение списка всех заявок
@@ -77,12 +79,9 @@ public class Tracker {
     public Item[] findByName(String key) {
         Item[] result = new Item[this.position];
         int i = 0;
-        for (Item item : this.items) {
-            if ((item.getName()).equals(key)) {
-                result[i++] = item;
-            }
-            if (item == null) {
-                break;
+        for (int index = 0; index < this.position; index++) {
+            if ((this.items[index].getName()).equals(key)) {
+                result[i++] = this.items[index];
             }
         }
         return Arrays.copyOf(result, i);

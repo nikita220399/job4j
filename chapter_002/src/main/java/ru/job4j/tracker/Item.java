@@ -4,15 +4,13 @@ public class Item {
     private String id;
     private String name;
     private String desc;
-    private long created;
 
     public Item() {
     }
 
-    public Item(String name, String desc, long created) {
+    public Item(String name, String desc) {
         this.name = name;
         this.desc = desc;
-        this.created = created;
     }
 
     public String getName() {
@@ -21,10 +19,6 @@ public class Item {
 
     public String getDesc() {
         return this.desc;
-    }
-
-    public long getCreated() {
-        return this.created;
     }
 
     public String getId() {
