@@ -34,27 +34,31 @@ public class Tracker {
     }
 
     // редактирование заявок
-    public void replace(String id, Item item) {
-        int i = 0;
-        for (Item arr : this.items) {
-            if (arr != null && arr.getId().equals(id)) {
+    public boolean replace(String id, Item item) {
+        boolean flag = false;
+        int index = 0;
+        for (; index < this.position; index++) {
+            if (this.items[index].getId().equals(id)) {
+                flag = true;
                 break;
             }
-            i++;
         }
-        if (this.items[i] != null) {
+        if (index < this.position) {
             item.setId(id);
-            this.items[i] = item;
+            this.items[index] = item;
         }
+        return flag;
     }
 
     // удаление заявок
-    public void delete(String id) {
+    public boolean delete(String id) {
+        boolean flag = false;
         int index = 0;
         int i = 0;
         Item temp;
         for (; index < this.position; index++) {
             if (this.items[index].getId().equals(id)) {
+                flag = true;
                 break;
             }
             i++;
@@ -68,6 +72,7 @@ public class Tracker {
             this.items[position - 1] = null;
             this.position--;
         }
+        return flag;
     }
 
     // получение списка всех заявок
@@ -76,12 +81,13 @@ public class Tracker {
     }
 
     // получение списка по имени
-    public Item[] findByName(String key) {
+    public Item[] findByName(String key, boolean flag) {
         Item[] result = new Item[this.position];
         int i = 0;
         for (int index = 0; index < this.position; index++) {
             if ((this.items[index].getName()).equals(key)) {
                 result[i++] = this.items[index];
+                flag = true;
             }
         }
         return Arrays.copyOf(result, i);
