@@ -129,12 +129,11 @@ public class StartUI {
     }
 
     private void findByNameItem() {
-        boolean flag = false;
         System.out.println("------------ Получение списка заявок по имени --------------");
         String name = this.input.ask("Введите имя заявки :");
-        Item[] result = tracker.findByName(name, flag);
+        Item[] result = tracker.findByName(name);
         int i = 1;
-        if (flag == true) {
+        if (result.length != 0) {
             for (Item item : result) {
                 System.out.println("------------ Заявка №" + i + " --------------");
                 System.out.println("GetId заявки : " + item.getId());

@@ -81,13 +81,12 @@ public class Tracker {
     }
 
     // получение списка по имени
-    public Item[] findByName(String key, boolean flag) {
+    public Item[] findByName(String key) {
         Item[] result = new Item[this.position];
         int i = 0;
         for (int index = 0; index < this.position; index++) {
             if ((this.items[index].getName()).equals(key)) {
                 result[i++] = this.items[index];
-                flag = true;
             }
         }
         return Arrays.copyOf(result, i);
