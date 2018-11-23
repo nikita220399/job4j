@@ -50,7 +50,6 @@ public class StartUITest {
     @Test
     public void whenUserAddItemThenTrackerHasFindByNameToItems() {
         Tracker tracker = new Tracker();
-        boolean flag = false;
         Item item1 = tracker.add(new Item("test", "desc"));
         Item item2 = tracker.add(new Item("test", "desc2"));
         Input input = new StubInput(new String[]{"5", "test", "6"});

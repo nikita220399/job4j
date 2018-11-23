@@ -77,9 +77,8 @@ public class StartUI {
         Item item = new Item(name, desc);
         boolean flag = this.tracker.replace(id, item);
         if (flag == true) {
-            System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
-            System.out.println("------------ Новая заявка с именем : " + item.getName() + "-----------");
-            System.out.println("------------ Новая заявка с описанием : " + item.getDesc() + "-----------");
+            System.out.println("Новая заявка после редактирования: ");
+            System.out.println(item.toString());
         } else {
             System.out.println("------------ Заявка с таким id не найдена --------------");
         }
@@ -92,9 +91,7 @@ public class StartUI {
             int i = 1;
             for (Item item : result) {
                 System.out.println("------------ Заявка №" + i + " --------------");
-                System.out.println("GetId заявки: " + item.getId());
-                System.out.println("Имя заявки: " + item.getName());
-                System.out.println("Описание заявки : " + item.getDesc());
+                System.out.println(item.toString());
                 i++;
             }
         } else {
@@ -120,9 +117,7 @@ public class StartUI {
         item = tracker.findById(id);
         if (item != null) {
             System.out.println("------------ Найденная заявка --------------");
-            System.out.println("GetId заявки: " + item.getId());
-            System.out.println("Имя заявки : " + item.getName());
-            System.out.println("Описание заявки : " + item.getDesc());
+            System.out.println(item.toString());
         } else {
             System.out.println("------------ Заявка с таким id не найдена --------------");
         }
@@ -136,9 +131,7 @@ public class StartUI {
         if (result.length != 0) {
             for (Item item : result) {
                 System.out.println("------------ Заявка №" + i + " --------------");
-                System.out.println("GetId заявки : " + item.getId());
-                System.out.println("Имя заявки : " + item.getName());
-                System.out.println("Описание заявки : " + item.getDesc());
+                System.out.println(item.toString());
                 i++;
             }
         } else {

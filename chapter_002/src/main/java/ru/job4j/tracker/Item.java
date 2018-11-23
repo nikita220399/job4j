@@ -13,6 +13,11 @@ public class Item {
         this.desc = desc;
     }
 
+    public String toString() {
+        String ln = System.lineSeparator();
+        return "GetId заявки : " + getId() + ln + "Имя заявки : " + this.name + ln + "Описание заявки : " + this.desc;
+    }
+
     public String getName() {
         return this.name;
     }
