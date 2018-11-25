@@ -59,7 +59,7 @@ public class MenuTracker  {
         this.actions[key].execute(this.input, this.tracker);
     }
 
-    public class addItem implements UserAction {
+    private class addItem implements UserAction {
         @Override
         public int key() {
             return 0;
@@ -83,7 +83,7 @@ public class MenuTracker  {
         }
     }
 
-    public static class showItem implements UserAction {
+    private static class showItem implements UserAction {
         @Override
         public int key() {
             return 1;
@@ -111,7 +111,7 @@ public class MenuTracker  {
         }
     }
 
-    public class deleteItem implements UserAction {
+    private class deleteItem implements UserAction {
         @Override
         public int key() {
             return 3;
@@ -134,7 +134,7 @@ public class MenuTracker  {
         }
     }
 
-    public class findIdItem implements UserAction {
+    private class findIdItem implements UserAction {
         @Override
         public int key() {
             return 4;
@@ -159,7 +159,7 @@ public class MenuTracker  {
         }
     }
 
-    public class findNameItem implements UserAction {
+    private class findNameItem implements UserAction {
         @Override
         public int key() {
             return 5;
