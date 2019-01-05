@@ -22,7 +22,7 @@ public class KingWhite implements Figure {
     }
 
     @Override
-    public Cell[] way(Cell source, Cell dest) {
+    public Cell[] way(Cell source, Cell dest, Figure[] figures) {
         Cell[] steps = new Cell[0];
         if (Math.abs(source.x - dest.x) <= 1 && Math.abs(source.y - dest.y) <= 1) {
             steps = new Cell[] { dest };

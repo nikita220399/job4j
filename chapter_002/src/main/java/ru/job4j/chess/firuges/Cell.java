@@ -12,8 +12,6 @@ public enum Cell {
 
     public final int x;
     public final int y;
-    public int dx;
-    public int dy;
 
     Cell(int x, int y) {
         this.x = x;

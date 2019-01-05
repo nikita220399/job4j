@@ -22,7 +22,7 @@ public class QeenWhite implements Figure {
     }
 
     @Override
-    public Cell[] way(Cell source, Cell dest) {
+    public Cell[] way(Cell source, Cell dest, Figure[] figures) {
         Cell[] steps = new Cell[0];
         if (Math.abs(source.x - dest.x) == Math.abs(source.y - dest.y) || source.x == dest.x || source.y == dest.y) {
             steps = new Cell[] { dest };

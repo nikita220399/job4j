@@ -2,7 +2,6 @@ package ru.job4j.chess;
 
 import ru.job4j.chess.firuges.Cell;
 import ru.job4j.chess.firuges.Figure;
-import ru.job4j.chess.firuges.black.PawnBlack;
 
 import java.util.Optional;
 
@@ -14,9 +13,8 @@ import java.util.Optional;
  * @since 0.1
  */
 public class Logic {
-    private final Figure[] figures = new Figure[32];
-    private int index = 0;
-    private Figure between;
+    public final Figure[] figures = new Figure[32];
+    public int index = 0;
 
     public void add(Figure figure) {
         this.figures[this.index++] = figure;
@@ -24,34 +22,39 @@ public class Logic {
 
     public boolean move(Cell source, Cell dest) {
         boolean rst = false;
-        boolean flag = false;
         int index = this.findBy(source);
         if (index != -1) {
-            Cell[] steps = this.figures[index].way(source, dest);
-            if (steps.length > 0 && steps[steps.length - 1].equals(dest)) {
-                for (int i = 0; i < this.figures.length; i++) {
-                    if (this.figures[i].position().equals(dest)) {
-                        flag = true;
-                        break;
-                    }
-                }
-                if (flag == false) {
-                    rst = true;
-                    this.figures[index] = this.figures[index].copy(dest);
-                }
+            Cell[] steps = this.figures[index].way(source, dest, figures);
+            if (steps.length > 0 && steps[0].equals(dest)) {
+                rst = true;
+                this.figures[index] = this.figures[index].copy(dest);
             }
         }
         return rst;
     }
 
-//    public boolean occupied(Cell source, Cell dest, Cell[] steps) {
-//        boolean flag = true;
-//        int dx = Math.abs(source.x - dest.x);
-//        int dy = Math.abs(source.y - dest.y);
-//        for (int i = 0, index1 = source.x, index2 = source.y; i < this. figures.length && index1 < dx && index2 < dy; i++, index1++, index2++) {
-//            this.between
+//    public boolean move(Cell source, Cell dest) {
+//        boolean rst = false;
+//        boolean flag = false;
+//        int index = this.findBy(source);
+//        if (index != -1) {
+//            Cell[] steps = this.figures[index].way(source, dest, figures);
+//            if (steps.length > 0 && steps[steps.length - 1].equals(dest)) {
+//                for (int j = 0; j < steps.length; j++) {
+//                    for (int i = 0; i < this.figures.length; i++) {
+//                        if (this.figures[i].position().equals(steps[j])) {
+//                            flag = true;
+//                            break;
+//                        }
+//                    }
+//                }
+//                if (flag == false) {
+//                    rst = true;
+//                    this.figures[index] = this.figures[index].copy(dest);
+//                }
+//            }
 //        }
-//        return flag;
+//        return rst;
 //    }
 
     public void clean() {
