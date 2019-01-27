@@ -1,4 +1,5 @@
 package ru.job4j.tracker;
+import java.util.*;
 
 class EditItem extends BaseAction {
 
@@ -80,8 +81,8 @@ public class MenuTracker  {
 
         @Override
         public void execute(Input input, Tracker tracker) {
-            Item[] result = tracker.findAll();
-            if (result.length != 0) {
+            List<Item> result = tracker.findAll();
+            if (result.size() != 0) {
                 System.out.println("------------ Все добавленные заявки --------------");
                 int i = 1;
                 for (Item item : result) {
