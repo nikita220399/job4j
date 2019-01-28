@@ -1,6 +1,6 @@
 package job4j.sort;
 
-public class User implements Comparable<User>{
+public class User {
     private String name;
     private int age;
 
@@ -15,10 +15,5 @@ public class User implements Comparable<User>{
 
     public int getAge() {
         return this.age;
-    }
-
-    @Override
-    public int compareTo(User o) {
-        return this.age > o.age ? 1 : -1;
     }
 }
