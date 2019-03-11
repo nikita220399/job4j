@@ -5,7 +5,7 @@ public class Rgb extends Color{
     private double green;
     private double blue;
 
-    public Rgb(double red, double green, double blue, String model) {
+    public Rgb(double red, double green, double blue) {
         if (red >= 0 && red <= 255) {
             this.red = red;
         }
@@ -15,7 +15,6 @@ public class Rgb extends Color{
         if (blue >= 0 && blue <= 255) {
             this.blue = blue;
         }
-        this.model = model;
     }
 
     public double distanceTo(Rgb that) {
