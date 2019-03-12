@@ -7,44 +7,43 @@ public class Service {
     private int resultC = 0;
     private int result = 0;
     private int checkB = 0;
+    private int prev = 0;
+    private boolean flag = false;
+    //private int i = 0;
 
-    public void sum(Department department) {
-//        int checkC = 0;
-//        this.result += (department.getTime());
-//        if (department.getName().equals("DepB") && department.getTime() > checkB) {
-//            checkB = department.getTime();
-//
-//        }
-//        if (department.getName().equals("DepC") && department.getTime() > checkC) {
-//            checkC = department.getTime();
-//        }
-//
-//        if (department.getChild().length != 0) {
-//            for (int i = 0; i < department.getChild().length; i++) {
-//                sum(department.getChild()[i]);
-//            }
-//        } else {
-//            return;
-//        }
-        resultA = department.getTime();
+    public int sum(Department department) {
+        int max = 0;
+        int res = 0;
         if (department.getChild().length != 0) {
-            for (Department d : department.getChild()) {
-                int checkC = 0;
-                if (d.getTime() > checkB) {
-                    checkB = d.getTime();
+            for (Department check : department.getChild()) {
+                if (check.getTime() > max) {
+                    max = check.getTime();
                 }
-                if (d.getChild().length != 0) {
-                    for (Department d2 : d.getChild()) {
-                        if (d2.getTime() > checkC) {
-                            checkC = d2.getTime();
-                        }
-                    }
-                    resultC += checkC;
-                }
+                res += sum2(check);
             }
-            resultB += checkB;
+            res += max;
+            res += department.getTime();
+            return res;
+        } else {
+            return 0;
         }
-        result = resultA + resultB + resultC;
+    }
+
+    private int sum2(Department department) {
+        int max = 0;
+        int res = 0;
+        if (department.getChild().length != 0) {
+            for (Department check : department.getChild()) {
+                if (check.getTime() > max) {
+                    max = check.getTime();
+                }
+                res += sum(check );
+            }
+            res += max;
+            return res;
+        } else {
+            return 0;
+        }
     }
 
     public Department setup() {
@@ -71,8 +70,8 @@ public class Service {
     public static void main(String[] args) {
         Service s = new Service();
         Department d = s.setup();
-        s.sum(d);
-        System.out.println(s.getResult());
+        int k = s.sum(d);
+        System.out.println(k);
     }
 
     public Department getRoot() {
