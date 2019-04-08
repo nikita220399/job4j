@@ -15,12 +15,11 @@ public class Directory {
                 list.add(array.get(i));
                 pointer++;
                 if (i >= 1 && array.get(i - 1).equals("..")) {
-                    pointer += pointer*(-1) + 2;
+                    pointer += pointer * (-1) + 2;
                 }
             }
             if (array.get(i).equals("..")) {
                 pointer--;
-
                 if (pointer > -1) {
                     int index = list.size() - 1;
                     list.remove(index);
@@ -32,7 +31,7 @@ public class Directory {
                     list.remove(index);
                 }
             }
-            if (pointer < 0) {
+            if (pointer < 0 && !array.get(i).equals(".")) {
                 list.add("..");
             }
         }
@@ -42,7 +41,8 @@ public class Directory {
     public static void main(String[] args) {
         Directory o = new Directory();
         String str = "КРОК/task_6_2/src/./../../task_6_1/../../../мемы/котики";
-        List<String> del = o.delete(str);
+        String str2 = "../.";
+        List<String> del = o.delete(str2);
         for (String a : del) {
             if (del.indexOf(a) != del.size() - 1) {
                 System.out.print(a + '/');
