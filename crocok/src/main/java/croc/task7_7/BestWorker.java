@@ -19,12 +19,12 @@ public class BestWorker {
             while (scanner.hasNextLine()) {
                 String[] tokens = scanner.nextLine().split(",");
                 String name = tokens[2];
-                synchronized (lock) {
-                    if (map.containsKey(name)) {
-                        map.put(name, map.get(name) + 1);
-                    } else {
+                if (!map.containsKey(name)) {
+                    synchronized (lock) {
                         map.put(name, 1);
                     }
+                } else {
+                    map.put(name, map.get(name) + 1);
                 }
             }
         }
