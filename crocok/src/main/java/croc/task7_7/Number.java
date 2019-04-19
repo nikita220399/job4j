@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class Number implements Runnable{
 
-    private static final Object lock = new Object();
+
     private BestWorker log;
     public static Map<String, Integer> map = new HashMap<>();
 
@@ -34,12 +34,10 @@ public class Number implements Runnable{
 
     @Override
     public void run() {
-        synchronized (lock) {
-            try {
-                log.bestWorker(map);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
+        try {
+            log.bestWorker(map);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
     }
 
